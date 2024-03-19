@@ -5,9 +5,9 @@
 // produce a table that shows how many times each symbol occurred.
 
 
-package week3;
+package Week3;
 
-public class punctuation{
+public class Punctuation{
 
 public static void main(String[] args){  //Main method
 
