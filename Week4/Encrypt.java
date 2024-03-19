@@ -54,7 +54,7 @@ public class Encrypt {
 		int usrPin;
 		String output;
 		double random;
-		int min = 1000;
+		// int min = 1000;
 		int max = 65536;
 		int[] randoms = new int[2];
 
