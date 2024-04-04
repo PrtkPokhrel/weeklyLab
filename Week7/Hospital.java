@@ -9,19 +9,73 @@ package Week7;
 
 public class Hospital {
     public static void main(String[] args) {
+        Doctor doctor = new Doctor("John Doe", 123, "Cardiology");
+        doctor.diagnosePatient();
 
-        Staff doctor1=new Staff();
-        String d1=doctor1.doctor("Robert","A21","20","Heart");
-        System.out.println(d1);
+        Nurse nurse = new Nurse("Jane Smith", 456, 10);
+        nurse.provideCare();
 
-
+        Cleaner cleaner = new Cleaner("Alice Brown", 789, "Emergency Department");
+        cleaner.clean();
     }
-}   
-class Staff{
+}
 
-    public String doctor(String name,String id,String patientNumber,String specialism){
-        return "Doctor: "+name+"\n EmpID: "+id+"\n Specializes in: "+specialism+"\nNumber of patients: "+patientNumber;
+
+
+class HospitalEmployee {
+    private String name;
+    private int employeeNumber;
+
+    public HospitalEmployee(String name, int employeeNumber) {
+        this.name = name;
+        this.employeeNumber = employeeNumber;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getEmployeeNumber() {
+        return employeeNumber;
+    }
+}
+
+class Doctor extends HospitalEmployee {
+    private String specialism;
+
+    public Doctor(String name, int employeeNumber, String specialism) {
+        super(name, employeeNumber);
+        this.specialism = specialism;
+    }
+
+    public void diagnosePatient() {
+        System.out.println("Doctor " + getName() + " Emp#" + getEmployeeNumber() + " specializes in " + specialism);
+    }
+}
+
+class Nurse extends HospitalEmployee {
+    private int numberOfPatients;
+
+    public Nurse(String name, int employeeNumber, int numberOfPatients) {
+        super(name, employeeNumber);
+        this.numberOfPatients = numberOfPatients;
+    }
+
+    public void provideCare() {
+        System.out.println("Nurse " + getName() + " Emp#" + getEmployeeNumber() + " has " + numberOfPatients + " patients");
+    }
+}
+
+class Cleaner extends HospitalEmployee {
+    private String department;
+
+    public Cleaner(String name, int employeeNumber, String department) {
+        super(name, employeeNumber);
+        this.department = department;
+    }
+
+    public void clean() {
+        System.out.println("Cleaner " + getName() + " Emp#" + getEmployeeNumber() + " of " + department + " is sweeping");
+    }
 }
 
